@@ -25,7 +25,7 @@ export default {
   methods: {
 		addToCart(item) {
 			this.$store.commit('addToCart', item)
-			const info = item + ' added to cart'
+			const info = item
 			this.cart.push(info)
 		}
 	}

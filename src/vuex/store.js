@@ -16,6 +16,11 @@ const mutations = {
 }
 
 const getters = {
+  total: state => {
+		let amount = 0
+		state.cart.forEach(item => (amount += item.price * item.count))
+		return amount
+	}
 }
 
 const actions = {
