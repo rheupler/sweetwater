@@ -1,30 +1,23 @@
 <template>
   <div class="hello">
     <div class="row">
-      <div class="card col-md-3" v-for="item in items[0]">
+      <div class="card col-md-3 item" v-for="item in items">
         <p>{{ item.description }}</p>
         <p>Item ID: {{ item.itemid }}</p>
+        <button type="button" name="button" class="btn btn-success">Add to cart</button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import state from '../vuex/store'
 export default {
-  name: 'HelloWorld',
+  name: 'Products',
   data () {
     return {
-      items: []
+      items: this.$store.state.items
     }
-  },
-  created () {
-    fetch('../src/items.json')
-      .then(response => response.json())
-      .then(response => {
-        console.log(response)
-        this.items.push(response)
-      })
   }
 }
 </script>
@@ -44,5 +37,8 @@ li {
 }
 a {
   color: #42b983;
+}
+.item {
+  padding: 2rem 1rem;
 }
 </style>
