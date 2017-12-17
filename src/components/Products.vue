@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions, mapMutations } from 'vuex'
+import { mapMutations } from 'vuex'
 export default {
   name: 'Products',
   data () {

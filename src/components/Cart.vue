@@ -22,11 +22,11 @@
 </template>
 
 <script>
-import {mapGetters, mapState, mapMutations} from 'vuex'
+import {mapGetters, mapMutations} from 'vuex'
 export default {
   name: 'Cart',
   computed: {
-		...mapGetters(['total'])
+	   ...mapGetters(['total'])
 	},
   methods: {
     formatCurrency(price) {
