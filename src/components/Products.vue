@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters, mapActions, mapMutations } from 'vuex'
 export default {
   name: 'Products',
   data () {
@@ -23,11 +23,9 @@ export default {
     }
   },
   methods: {
-		addToCart(item) {
-			this.$store.commit('addToCart', item)
-			const info = item
-			this.cart.push(info)
-		}
+    ...mapMutations([
+      'addToCart'
+    ])
 	}
 }
 </script>
