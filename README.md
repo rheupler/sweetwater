@@ -1,4 +1,6 @@
-# sweetwater
+# Shopping Cart
+
+## Pulls from items from json and allows you to add those items to a cart. Updates prices and quantities.
 
 > A Vue.js project
 
@@ -16,9 +18,6 @@ npm run build
 
 # build for production and view the bundle analyzer report
 npm run build --report
-
-# run unit tests
-npm run unit
 
 # run all tests
 npm test
