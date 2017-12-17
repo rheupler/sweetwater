@@ -5,7 +5,13 @@ import App from './App'
 import router from './router'
 import store from './vuex/store'
 
+import Products from './components/Products.vue'
+import Cart from './components/Cart.vue'
+
 Vue.config.productionTip = false
+
+Vue.component('Products', Products)
+Vue.component('Cart', Cart)
 
 /* eslint-disable no-new */
 new Vue({

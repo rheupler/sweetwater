@@ -10,13 +10,21 @@ const state = {
 }
 
 const mutations = {
+  addToCart({ cart }, item) {
+				cart.push({ ...item, count: 1 })
+		},
 }
 
 const getters = {
 }
 
+const actions = {
+
+}
+
 export default new Vuex.Store({
   state,
   getters,
+  actions,
   mutations
 })

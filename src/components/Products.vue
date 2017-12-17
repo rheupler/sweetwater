@@ -2,23 +2,33 @@
   <div class="hello">
     <div class="row">
       <div class="card col-md-3 item" v-for="item in items">
+        <img v-bind:src="item.image">
         <p>{{ item.description }}</p>
+        <p>${{ item.price }}</p>
         <p>Item ID: {{ item.itemid }}</p>
-        <button type="button" name="button" class="btn btn-success">Add to cart</button>
+        <button type="button" name="button" @click='addToCart(item)' class="btn btn-success">Add to cart</button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import state from '../vuex/store'
+import { mapGetters, mapActions } from 'vuex'
 export default {
   name: 'Products',
   data () {
     return {
-      items: this.$store.state.items
+      items: this.$store.state.items,
+      cart: []
     }
-  }
+  },
+  methods: {
+		addToCart(item) {
+			this.$store.commit('addToCart', item)
+			const info = item + ' added to cart'
+			this.cart.push(info)
+		}
+	}
 }
 </script>
 
