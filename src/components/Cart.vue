@@ -2,18 +2,18 @@
   <div class="hello">
     <div class="row">
       <div class="card col-md-12">
-        <h1>I am a cart</h1>
         <div class="row">
 
         <div v-for="item in cart" class="col-md-6">
           <p>Quantity: <b>{{item.count}}</b> || Price: ${{ item.price }}</p>
           <p>{{ item.description }}</p>
+          <button type="button" name="button" @click='removeFromCart(item)' class="btn btn-success">Remove from cart</button>
         </div>
       </div>
       </div>
     </div>
     <div v-if="cart.length === 0">
-			<h2> No item :( </h2>
+			<h2> Cart empty </h2>
 		</div>
 		<div v-else>
 			<div><h1>Total: ${{ formatCurrency(total) }}</h1></div>
@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import {mapGetters, mapState} from 'vuex'
+import {mapGetters, mapState, mapMutations} from 'vuex'
 export default {
   name: 'Cart',
   computed: {
@@ -31,7 +31,10 @@ export default {
   methods: {
     formatCurrency(price) {
 			return price.toFixed(2)
-		}
+		},
+    ...mapMutations([
+			'removeFromCart'
+		])
   },
   data () {
     return {

@@ -19,6 +19,12 @@ const mutations = {
   		cart[itemIndex].count++
   	}
   },
+  removeFromCart({ cart }, item) {
+    let index = cart.indexOf(item)
+    if ( index > -1 ) {
+      cart.splice(index, 1)
+    }
+  }
 }
 
 const getters = {
