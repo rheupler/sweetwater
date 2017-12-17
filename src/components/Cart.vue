@@ -3,17 +3,20 @@
     <div class="row">
       <div class="card col-md-12">
         <h1>I am a cart</h1>
-        <div v-for="item in cart">
-          <p><b>${{ item.price }}</b></p>
+        <div class="row">
+
+        <div v-for="item in cart" class="col-md-6">
+          <p>Quantity: <b>{{item.count}}</b> || Price: ${{ item.price }}</p>
           <p>{{ item.description }}</p>
         </div>
+      </div>
       </div>
     </div>
     <div v-if="cart.length === 0">
 			<h2> No item :( </h2>
 		</div>
 		<div v-else>
-			<div>Total: ${{ formatCurrency(total) }}</div>
+			<div><h1>Total: ${{ formatCurrency(total) }}</h1></div>
 		</div>
   </div>
 </template>
@@ -28,7 +31,7 @@ export default {
   methods: {
     formatCurrency(price) {
 			return price.toFixed(2)
-		},
+		}
   },
   data () {
     return {

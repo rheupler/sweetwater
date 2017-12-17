@@ -10,9 +10,15 @@ const state = {
 }
 
 const mutations = {
-  addToCart({ cart }, item) {
-				cart.push({ ...item, count: 1 })
-		},
+  addToCart({ cart, items }, item) {
+	   const itemIndex = cart.findIndex(addedItem => addedItem.itemid === item.itemid)
+
+  	if (itemIndex === -1) {
+  		cart.push({ ...item, count: 1 })
+  	} else {
+  		cart[itemIndex].count++
+  	}
+  },
 }
 
 const getters = {
